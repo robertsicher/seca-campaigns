@@ -122,7 +122,7 @@ try:
             page.locator("#ret-include-acquisition").check()
             assert page.locator("#ret-avoided").inner_text()=="£1,500"
             assert page.locator("#ret-revenue").inner_text()=="£14,400"
-            page.locator("#calculator").scroll_into_view_if_needed()
+            page.locator("#calculator").evaluate("(el)=>window.scrollTo(0,el.getBoundingClientRect().top+window.scrollY-100)")
             page.screenshot(path=str(QA/"retention-calculator.jpg"),type="jpeg",quality=75)
             with page.expect_download() as item:
                 page.locator("[data-calculator] [data-save-scenario]").click()
@@ -173,7 +173,10 @@ try:
             page.keyboard.press("Escape")
             assert not page.locator("#demo-dialog").is_visible()
             page.locator("[data-strategy]").click()
-            assert "membershipValue" in page.locator("#context-preview").inner_text()
+            page.locator("#strategy-dialog details summary").click()
+            context_text=page.locator("#context-preview").inner_text()
+            assert "membershipValue" in context_text, context_text
+            page.screenshot(path=str(QA/"strategy-preview.jpg"),type="jpeg",quality=72)
             page.keyboard.press("Escape")
             record("Native dialogs: opening, keyboard focus, Escape and scenario context")
 

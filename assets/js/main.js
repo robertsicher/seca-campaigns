@@ -31,7 +31,7 @@ if(retention){
     ['ret-cac','ret-replacement'].forEach(id=>document.getElementById(id).disabled=!include);
     $('#acquisition-result').hidden=!include;
     const result=CampaignCalculators.retention({members:value('ret-members'),monthly:value('ret-monthly'),churn:value('ret-churn'),improvement:value('ret-improve'),months:value('ret-duration'),includeAcquisition:include,cac:value('ret-cac'),replacement:value('ret-replacement')});
-    put('ret-improve-label',number(Number(value('ret-improve')))+' percentage points');
+    put('ret-improve-label',number(Number(value('ret-improve')))+' percentage point'+(Number(value('ret-improve'))===1?'':'s'));
     if(!validity(retention,result)){put('ret-description','Complete valid inputs to see your scenario.');return;}
     put('ret-lost',number(result.lost));put('ret-retained',number(result.retained));put('ret-revenue',money(result.membershipValue));
     put('ret-description',number(result.retained)+' retained members × '+money(result.inputs.monthly)+' per month × '+result.inputs.months+' additional months.');

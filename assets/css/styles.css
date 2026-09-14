@@ -208,3 +208,5 @@ html{scroll-padding-top:92px}.nav-links{top:73px}.section{padding:56px 0}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 @media print{.site-header,.site-footer,.dialog,.form-shell,.btn-row{display:none!important}.section,.page-hero{padding:20px 0;background:white!important;color:black!important}.calc-shell{display:block;box-shadow:none}.calc-results{background:white!important;color:black!important}.result,.result--feature{background:white;color:black}.result-label,.caveat{color:#333}.container{width:100%}}
+
+.hero .eyebrow,.page-hero .eyebrow,.section--dark .eyebrow,.resource-cover:not(.resource-cover--light) .eyebrow{color:#ff515c}
