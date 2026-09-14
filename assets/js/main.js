@@ -1,111 +1,100 @@
 (function(){
-  const $=(s,c=document)=>c.querySelector(s); const $$=(s,c=document)=>Array.from(c.querySelectorAll(s));
-  const money=(n)=>new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',maximumFractionDigits:0}).format(Number.isFinite(n)?n:0);
-  const num=(n)=>new Intl.NumberFormat('en-GB',{maximumFractionDigits:1}).format(Number.isFinite(n)?n:0);
-  const val=(id,fallback=0)=>{const el=document.getElementById(id); if(!el)return fallback; const x=parseFloat(el.value); return Number.isFinite(x)?x:fallback};
-  const set=(id,text)=>{const el=document.getElementById(id); if(el) el.textContent=text};
-  const width=(id,v,max)=>{const el=document.getElementById(id); if(el)el.style.width=`${Math.max(0,Math.min(100,max?100*v/max:0))}%`};
-
-  function restructureCampaign(){
-    const path=window.location.pathname.replace(/\/+$/,'/');
-    const isHome=/\/progress-you-can-prove\/$/.test(path);
-    const isMulti=path.includes('/progress-you-can-prove/multi-site/');
-
-    /* Multi-site is an enterprise rollout layer, not a fifth use case. */
-    $$('.nav-links a').forEach(a=>{if((a.getAttribute('href')||'').includes('/multi-site/'))a.remove();});
-
-    const footerLinks=$('.footer-links');
-    if(footerLinks&&!$('.multi-site-footer',footerLinks)){
-      const a=document.createElement('a');
-      a.className='multi-site-footer';
-      a.href=isHome?'multi-site/':'../multi-site/';
-      a.textContent='For multi-site operators';
-      const strategy=$('.strategy-open',footerLinks);
-      strategy?footerLinks.insertBefore(a,strategy):footerLinks.appendChild(a);
+'use strict';
+const $=(s,c=document)=>c.querySelector(s), $$=(s,c=document)=>Array.from(c.querySelectorAll(s));
+const money=n=>new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',maximumFractionDigits:0}).format(n);
+const number=n=>new Intl.NumberFormat('en-GB',{maximumFractionDigits:1}).format(n);
+const put=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=v;};
+const value=id=>document.getElementById(id)?.value;
+const route=document.body.dataset.route;
+const objectives={overview:'Explore TRU Alpha',retention:'Retention','personal-training':'Personal training',performance:'Performance','premium-experience':'Premium experience','multi-site':'Multi-site pilot'};
+let scenario=null,calculatorType=null,hasCalculator=false;
+const caveats={
+retention:'Membership value represents fees associated with retained members over the selected additional months. It is not a net incremental revenue or ROI estimate. Replacement-member revenue, equipment, software and staff costs are excluded. Acquisition savings are optional and separate, and depend on spending actually being avoided. No TRU Alpha uplift is assumed.',
+pt:'Gross initial PT package sales before trainer payments, delivery and product costs. Sales may belong to an independent trainer rather than the club. Annual sales assume the same monthly consultation volume and conversion for 12 months. Renewals are excluded. No TRU Alpha uplift is assumed.'
+};
+function context(){
+  const params=new URLSearchParams(location.search),source={};
+  ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(k=>{const v=params.get(k);if(v)source[k]=v.slice(0,200);});
+  return {campaign:'Progress You Can Prove',objective:objectives[route]||route,page:location.pathname,source:source,calculator:calculatorType,scenario:scenario?.valid?scenario:null,assumptions:calculatorType?caveats[calculatorType]:null,status:'Interview demonstration. No enquiry has been sent.'};
+}
+function updateContext(){const el=$('#context-preview');if(el)el.textContent=JSON.stringify(context(),null,2);$$('[data-save-scenario]').forEach(b=>{b.disabled=hasCalculator&&!scenario?.valid;});}
+function validity(shell,result){
+  const error=$('.calc-error',shell);error.hidden=result.valid;error.textContent=result.valid?'':result.errors.join(' ');
+  if(!result.valid)$$('.result-value',shell).forEach(el=>el.textContent='–');
+  scenario=result;updateContext();return result.valid;
+}
+const retention=$('[data-calculator="retention"]');
+if(retention){
+  hasCalculator=true;calculatorType='retention';
+  const calc=()=>{
+    const include=$('#ret-include-acquisition').checked;
+    ['ret-cac','ret-replacement'].forEach(id=>document.getElementById(id).disabled=!include);
+    $('#acquisition-result').hidden=!include;
+    const result=CampaignCalculators.retention({members:value('ret-members'),monthly:value('ret-monthly'),churn:value('ret-churn'),improvement:value('ret-improve'),months:value('ret-duration'),includeAcquisition:include,cac:value('ret-cac'),replacement:value('ret-replacement')});
+    put('ret-improve-label',number(Number(value('ret-improve')))+' percentage points');
+    if(!validity(retention,result)){put('ret-description','Complete valid inputs to see your scenario.');return;}
+    put('ret-lost',number(result.lost));put('ret-retained',number(result.retained));put('ret-revenue',money(result.membershipValue));
+    put('ret-description',number(result.retained)+' retained members × '+money(result.inputs.monthly)+' per month × '+result.inputs.months+' additional months.');
+    put('ret-cap-note',result.appliedImprovement<result.inputs.improvement?'Applied improvement capped at '+number(result.appliedImprovement)+' percentage points so retained members cannot exceed those expected to leave.':number(result.inputs.churn)+'% annual churn becomes '+number(result.scenarioChurn)+'% in this scenario.');
+    if(include)put('ret-avoided',money(result.acquisitionSaving));
+  };
+  retention.addEventListener('input',calc);retention.addEventListener('change',calc);calc();
+}
+const pt=$('[data-calculator="pt"]');
+if(pt){
+  hasCalculator=true;calculatorType='pt';
+  const calc=()=>{
+    const result=CampaignCalculators.pt({consultations:value('pt-consults'),conversion:value('pt-conv'),packageValue:value('pt-value'),improvement:value('pt-uplift')});
+    if(!validity(pt,result)){put('pt-description','Complete valid inputs to see your scenario.');return;}
+    put('pt-current',number(result.current));put('pt-scenario',number(result.scenario));put('pt-additional',number(result.additional));put('pt-monthly',money(result.monthlySales));put('pt-annual',money(result.annualSales));
+    put('pt-description',number(result.additional)+' additional initial packages per month × '+money(result.inputs.packageValue)+' × 12 months.');
+    put('pt-cap-note',result.appliedImprovement<result.inputs.improvement?'Scenario conversion capped at 100%. Applied improvement: '+number(result.appliedImprovement)+' percentage points.':number(result.inputs.conversion)+'% conversion becomes '+number(result.scenarioConversion)+'% in this scenario.');
+  };
+  pt.addEventListener('input',calc);pt.addEventListener('change',calc);calc();
+}
+function saveScenario(){
+  const c=context();if(hasCalculator&&!scenario?.valid)return;
+  const lines=['PROGRESS YOU CAN PROVE','Business scenario','', 'Objective: '+c.objective,'Page: '+c.page,''];
+  if(scenario?.valid){lines.push('INPUTS',JSON.stringify(scenario.inputs,null,2),'','SCENARIO',JSON.stringify(scenario,null,2),'','ASSUMPTIONS',c.assumptions);}
+  else lines.push('Explore the member journey, team capacity, operating model and costs with a seca specialist.');
+  lines.push('','Interview demonstration. No enquiry has been sent. This file contains no personal contact details.');
+  const url=URL.createObjectURL(new Blob([lines.join('\n')],{type:'text/plain;charset=utf-8'})),a=document.createElement('a');
+  a.href=url;a.download='progress-you-can-prove-'+route+'-scenario.txt';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+$$('[data-save-scenario]').forEach(b=>b.addEventListener('click',saveScenario));
+const navToggle=$('.nav-toggle'),nav=$('.nav-links');
+function closeNav(){nav?.classList.remove('is-open');navToggle?.setAttribute('aria-expanded','false');navToggle?.setAttribute('aria-label','Open navigation');}
+navToggle?.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');navToggle.setAttribute('aria-expanded',String(open));navToggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');});
+$$('a',nav||document).forEach(a=>a.addEventListener('click',closeNav));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav?.classList.contains('is-open')){closeNav();navToggle.focus();}});
+function openDialog(dialog,trigger){
+  closeNav();updateContext();dialog.showModal();dialog.dataset.trigger='';
+  if(dialog.id==='demo-dialog'){const select=$('select[name="objective"]',dialog);const objective=objectives[route];if(Array.from(select.options).some(o=>o.value===objective))select.value=objective;}
+}
+$$('[data-demo]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();openDialog($('#demo-dialog'),a);}));
+$$('[data-strategy]').forEach(a=>a.addEventListener('click',()=>openDialog($('#strategy-dialog'),a)));
+$$('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('dialog').close()));
+$$('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}}));
+$$('[data-demo-form]').forEach(form=>{
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const message=$('.form-message',form),preview=$('[data-enquiry-preview]',form);
+    if(preview){
+      const objective=$('select[name="objective"]',form)?.value||form.dataset.objective;
+      let summary='Priority: '+objective+'. ';
+      if(scenario?.valid&&calculatorType==='retention')summary+='Current scenario: '+number(scenario.retained)+' retained members and '+money(scenario.membershipValue)+' in associated membership value across '+scenario.inputs.months+' additional months. ';
+      if(scenario?.valid&&calculatorType==='pt')summary+='Current scenario: '+money(scenario.annualSales)+' in additional annual initial-package sales. ';
+      if(hasCalculator&&!scenario?.valid)summary+='Calculator inputs need correcting before a scenario can be included. ';
+      summary+='A specialist would discuss your current process, operating model and next steps.';
+      preview.textContent=summary;
     }
-
-    if(isHome){
-      const priority=$('#business-priorities');
-      if(priority){
-        const heading=$('.section-head h2',priority);
-        if(heading)heading.textContent='One measurement platform. Four commercial conversations.';
-        const intro=$('.section-head p:last-child',priority);
-        if(intro)intro.textContent='Each route starts with a different operator problem and uses the same core idea: make progress easier to see, understand and act on.';
-        $$('.pillar',priority).forEach(p=>{const tag=$('.tag',p);if(tag&&tag.textContent.trim().toUpperCase()==='SCALE')p.remove();});
-        if(!$('#enterprise-scale')){
-          const section=document.createElement('section');
-          section.className='section';
-          section.id='enterprise-scale';
-          section.innerHTML='<div class="container"><div class="intro-split"><div><p class="eyebrow">For multi-site operators</p><h2 class="display">Proven at one club. Designed to scale.</h2></div><div class="intro-copy"><p>Retention, personal training, performance and premium experience are the reasons to engage. For a multi-site operator, the next question is whether the chosen use case works consistently across the estate.</p><p>Start with representative locations, prove member adoption, operational fit and commercial relevance, then use real evidence to decide whether broader deployment makes sense.</p><a class="btn btn--red" href="multi-site/" style="margin-top:18px">Explore the 90-Day Pilot Framework</a></div></div></div>';
-          priority.insertAdjacentElement('afterend',section);
-        }
-      }
-      const objective=$('select[name="objective"]');
-      if(objective){
-        Array.from(objective.options).forEach(o=>{if(/national rollout/i.test(o.textContent))o.remove();});
-      }
-    }
-
-    if(isMulti){
-      const asideLabel=$('.page-hero .hero-aside .eyebrow');
-      if(asideLabel)asideLabel.textContent='Enterprise rollout layer';
-      const hero=$('.page-hero');
-      if(hero&&!$('.enterprise-context')){
-        const context=document.createElement('section');
-        context.className='section section--tight enterprise-context';
-        context.innerHTML='<div class="container"><div class="callout"><p><strong>Start with the use case first.</strong> Retention, PT, performance or premium experience creates the reason to engage. This framework is what happens next when a multi-site operator wants to prove the model before scaling it.</p></div></div>';
-        hero.insertAdjacentElement('afterend',context);
-      }
-    }
-
-    const cardBy=(title)=>$$('.strategy-card').find(card=>$('h3',card)?.textContent.trim()===title);
-    const objectiveCard=cardBy('Commercial objective');
-    if(objectiveCard){
-      const p=$('p',objectiveCard); if(p)p.textContent='Create demand around four operator problems: member retention, personal training, performance programmes and premium member experience. Multi-site is treated as the enterprise conversion layer, not a fifth proposition.';
-    }
-    const intentCard=cardBy('Content by intent');
-    if(intentCard){
-      const p=$('p',intentCard); if(p)p.textContent='Retention and PT use calculators where the prospect\'s own economics improve the conversation. Performance and premium use practical guides. The 90-Day Pilot Framework sits later in the journey, once a multi-site account has identified the use case it wants to validate.';
-    }
-    const hubspotCard=cardBy('HubSpot architecture');
-    if(hubspotCard){
-      const p=$('p',hubspotCard); if(p)p.textContent='Page behaviour and asset engagement identify interest in the four core use cases. For larger accounts, site count, repeat engagement and multiple stakeholders can move the Company record into an enterprise pilot or ABM path rather than treating multi-site as a separate campaign theme.';
-    }
-    const note=$('.strategy-note');
-    if(note)note.innerHTML='<strong>Principle:</strong> four demand propositions create the reason to engage. Multi-site is the enterprise conversion layer: once the use case is clear, pilot evidence determines whether the operator should scale it.';
-  }
-
-  restructureCampaign();
-
-  const navToggle=$('.nav-toggle'), navLinks=$('.nav-links');
-  if(navToggle&&navLinks){navToggle.addEventListener('click',()=>{const o=navLinks.classList.toggle('is-open');navToggle.setAttribute('aria-expanded',o)});}
-  const modal=$('#strategy-modal');
-  $$('.strategy-open').forEach(a=>a.addEventListener('click',e=>{e.preventDefault(); if(modal){modal.classList.add('is-open');modal.setAttribute('aria-hidden','false'); $('.modal-close',modal)?.focus();}}));
-  $('.modal-close',modal||document)?.addEventListener('click',()=>{modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true')});
-  modal?.addEventListener('click',e=>{if(e.target===modal){modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true')}});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal?.classList.contains('is-open')){$('.modal-close',modal)?.click()}});
-
-  $$('.mock-lead-form').forEach(form=>form.addEventListener('submit',e=>{e.preventDefault(); $('.form-message',form)?.classList.add('is-visible')}));
-
-  function retention(){
-    const form=$('[data-calculator="retention"]'); if(!form)return;
-    const replacementShare=.5;
-    const calc=()=>{
-      const members=val('ret-members'), monthly=val('ret-monthly'), churn=val('ret-churn')/100, cac=val('ret-cac'), improve=val('ret-improve'), duration=val('ret-duration');
-      const lost=members*churn, retained=members*(improve/100), revenue=retained*monthly*duration, avoided=retained*replacementShare*cac, opp=revenue+avoided;
-      const currentSpend=lost*replacementShare*cac, scenarioChurn=Math.max(0,churn-improve/100), scenarioCost=members*scenarioChurn*replacementShare*cac;
-      set('ret-lost',num(lost)); set('ret-retained',num(retained)); set('ret-revenue',money(revenue)); set('ret-avoided',money(avoided)); set('ret-opportunity',money(opp)); set('ret-improve-label',`${num(improve)} percentage point${improve===1?'':'s'}`);
-      const max=Math.max(currentSpend,scenarioCost,1); set('bar-current-label',money(currentSpend));set('bar-scenario-label',money(scenarioCost));width('bar-current',currentSpend,max);width('bar-scenario',scenarioCost,max);
-    }; form.addEventListener('input',calc); calc();
-  }
-  function pt(){
-    const form=$('[data-calculator="pt"]'); if(!form)return;
-    const calc=()=>{
-      const consultations=val('pt-consults'), conv=val('pt-conv')/100, pkg=val('pt-value'), uplift=val('pt-uplift')/100;
-      const current=consultations*conv, scenario=consultations*Math.min(1,conv+uplift), add=scenario-current, monthly=add*pkg, annual=monthly*12;
-      set('pt-current',num(current)); set('pt-scenario',num(scenario)); set('pt-additional',num(add)); set('pt-monthly',money(monthly)); set('pt-annual',money(annual));
-      set('pt-sentence',`If conversion increased from ${num(conv*100)}% to ${num(Math.min(1,conv+uplift)*100)}%, this scenario represents approximately ${money(annual)} in additional annual initial-package revenue.`);
-    }; form.addEventListener('input',calc); calc();
-  }
-  retention(); pt();
+    message.hidden=false;message.focus();updateContext();
+  });
+  $('[data-sample]',form)?.addEventListener('click',()=>{
+    const sample={first:'Alex',email:'alex@example.com',company:'Example Fitness',role:'General manager',sites:'3'};
+    Object.entries(sample).forEach(([name,value])=>{const el=form.elements.namedItem(name);if(el)el.value=value;});
+  });
+  $('fieldset',form).disabled=false;
+});
+updateContext();
 })();
