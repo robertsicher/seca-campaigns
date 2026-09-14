@@ -1,0 +1,23 @@
+{
+  "checks": [
+    "All six pages: relative links, asset paths and fragment targets",
+    "progress-challenge-toolkit: expected page count, readable text and page bounds",
+    "premium-member-experience-guide: expected page count, readable text and page bounds",
+    "90-day-pilot-framework: expected page count, readable text and page bounds",
+    "All routes: 1440px layout, main heading and images",
+    "All routes: 1024px layout, main heading and images",
+    "All routes: 768px layout, main heading and images",
+    "All routes: 390px layout, main heading and images",
+    "All routes: 320px layout, main heading and images",
+    "No browser JavaScript errors",
+    "Retention: cap, zero churn, blank validation, separate savings and downloadable scenario",
+    "PT: default sales, invalid conversion, 100% cap and zero volume",
+    "progress-challenge-toolkit: local form preview and both downloads",
+    "premium-member-experience-guide: local form preview and both downloads",
+    "90-day-pilot-framework: local form preview and both downloads"
+  ],
+  "failures": [
+    ""
+  ],
+  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/seca-campaigns/seca-campaigns/scripts/verify_site.py\", line 176, in <module>\n    assert \"membershipValue\" in page.locator(\"#context-preview\").inner_text()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+}
