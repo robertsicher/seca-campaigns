@@ -58,7 +58,7 @@
       const premium=usePrem?(sites*premUp*premDiff*12):0;
       const assess=useAssess?(sites*assessVol*assessFee*12):0;
       const total=retention+ptOpp+premium+assess; const payback=total>0?investment/(total/12):0;
-      set('multi-total',money(total));set('multi-investment',money(investment));set('multi-payback',payback?`${num(payback)} months`:'N/A');set('multi-member-base',num(totalMembers));set('multi-retention',money(retention));set('multi-pt',money(ptOpp));set('multi-premium',money(premium));set('multi-assess',money(assess));set('multi-churn-display',pct(churn*100));
+      set('multi-total',money(total));set('multi-investment',money(investment));set('multi-payback',payback?`${num(payback)} months`:'N/A');set('multi-member-base',num(totalMembers));set('multi-retention',money(retention));set('multi-pt-output',money(ptOpp));set('multi-premium',money(premium));set('multi-assess',money(assess));set('multi-churn-display',pct(churn*100));
     };form.addEventListener('input',calc);calc();
   }
   retention();pt();premium();multisite();
