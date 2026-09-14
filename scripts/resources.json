@@ -1,0 +1,1369 @@
+{
+  "progress-challenge-toolkit": {
+    "csv": {
+      "headers": [
+        "Club",
+        "Cohort",
+        "Checkpoint (week 0/4/8)",
+        "Reporting date",
+        "Registrations",
+        "Week 0 completers",
+        "Assessments completed",
+        "Coach reviews completed",
+        "Next-programme sign-ups",
+        "Feedback responses",
+        "Feedback invited",
+        "Owner",
+        "Action notes"
+      ],
+      "rows": [
+        [
+          "",
+          "",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "4",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "8",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      ]
+    },
+    "label": "Performance toolkit",
+    "pages": [
+      {
+        "blocks": [
+          {
+            "headers": [
+              "When",
+              "Member experience",
+              "Team action"
+            ],
+            "rows": [
+              [
+                "Week 0",
+                "Baseline measurement and personal goal",
+                "Explain the results and book both reviews."
+              ],
+              [
+                "Week 4",
+                "Repeat measurement and coaching review",
+                "Discuss training, feedback and the next action."
+              ],
+              [
+                "Week 8",
+                "Repeat measurement and next-block consultation",
+                "Review the block and agree what comes next."
+              ]
+            ],
+            "type": "table",
+            "widths": [
+              0.16,
+              0.42,
+              0.42
+            ]
+          },
+          {
+            "text": "Choose the purpose",
+            "type": "h"
+          },
+          {
+            "text": "Select one audience: a strength group, a conditioning cohort, a transformation programme or another clearly defined member group. Use body composition alongside relevant performance measures and member feedback.",
+            "type": "p"
+          },
+          {
+            "text": "Cohort / programme",
+            "type": "field"
+          },
+          {
+            "text": "Registration dates / capacity",
+            "type": "field"
+          },
+          {
+            "text": "Programme lead / coach team",
+            "type": "field"
+          },
+          {
+            "text": "Use the copy templates on page 3, the consultation sheet on page 4 and the aggregate tracker on page 5. Adapt the schedule to your capacity and follow the device instructions for eligibility, preparation and measurement.",
+            "type": "p"
+          }
+        ],
+        "intro": "Eight weeks. Three checkpoints. Give each participant a useful baseline, a review and a clear next step.",
+        "title": "Plan the challenge"
+      },
+      {
+        "blocks": [
+          {
+            "headers": [
+              "Task",
+              "Suggested owner",
+              "Complete"
+            ],
+            "rows": [
+              [
+                "Define the cohort, member benefit and next-step offer",
+                "Programme lead",
+                "[ ]"
+              ],
+              [
+                "Set assessment capacity and appointment slots for all three checkpoints",
+                "Club manager",
+                "[ ]"
+              ],
+              [
+                "Confirm device instructions, staff training and support route",
+                "Measurement lead",
+                "[ ]"
+              ],
+              [
+                "Agree the consultation structure and escalation route",
+                "Coaching lead",
+                "[ ]"
+              ],
+              [
+                "Prepare the launch message and booking process",
+                "Marketing / reception",
+                "[ ]"
+              ],
+              [
+                "Set up aggregate reporting and a private member-record process",
+                "Programme lead",
+                "[ ]"
+              ],
+              [
+                "Book coach cover for weeks 0, 4 and 8",
+                "Club manager",
+                "[ ]"
+              ],
+              [
+                "Agree a short weekly operational check-in",
+                "Programme lead",
+                "[ ]"
+              ]
+            ],
+            "type": "table",
+            "widths": [
+              0.59,
+              0.29,
+              0.12
+            ]
+          },
+          {
+            "text": "Capacity check",
+            "type": "h"
+          },
+          {
+            "text": "Allow time for welcome, preparation, measurement, explanation and the next booking. The listed 24-second TRU Alpha measurement is only one part of the appointment. Plan against your observed full appointment time.",
+            "type": "p"
+          },
+          {
+            "text": "Appointments per week / time per appointment",
+            "type": "field"
+          },
+          {
+            "text": "Named owner for booking problems or missed reviews",
+            "type": "field"
+          },
+          {
+            "text": "Keep participation welcoming. Discuss individual results privately and recognise engagement, consistency and personal progress.",
+            "type": "p"
+          }
+        ],
+        "intro": "Complete this checklist before inviting members. Assign a person to each task.",
+        "title": "Prepare the team"
+      },
+      {
+        "blocks": [
+          {
+            "text": "Launch announcement",
+            "type": "h"
+          },
+          {
+            "text": "See what changed, not just what you weigh.\nJoin our 8-Week Progress Challenge at [club]. Start with a body composition measurement and a conversation about your goals, then review your progress with our team at weeks 4 and 8.\nYour results will help shape what you work on next, alongside your training and how you feel.\nStarts [date]. Includes [what is included]. Price: [price / included in membership]. Book at [booking link] by [deadline].",
+            "type": "copy"
+          },
+          {
+            "text": "Week 4 reminder",
+            "type": "h"
+          },
+          {
+            "text": "Hi [first name], your Progress Challenge review is due on [date]. We will look at your measurement, discuss how training has been going and agree your next action. Please follow the preparation guidance shared by the team. Book or change your appointment at [link].",
+            "type": "copy"
+          },
+          {
+            "text": "Week 8 invitation",
+            "type": "h"
+          },
+          {
+            "text": "Your final challenge review is coming up. Let us look back at the block and plan what comes next. Book your week 8 measurement and coach conversation at [link]. Bring any questions about your programme, progress or next goal.",
+            "type": "copy"
+          },
+          {
+            "text": "Send through the club's usual permitted communication process. Do not include body composition results in public posts or group messages.",
+            "type": "p"
+          }
+        ],
+        "intro": "Copy and adapt the text below. Replace every item in square brackets before use.",
+        "title": "Member messages"
+      },
+      {
+        "blocks": [
+          {
+            "text": "Member reference / coach / checkpoint date",
+            "type": "field"
+          },
+          {
+            "text": "1. Understand",
+            "type": "h"
+          },
+          {
+            "text": "What would you like to be able to do? What has gone well since the last checkpoint? What has made training difficult?",
+            "type": "p"
+          },
+          {
+            "text": "Member's goal / feedback",
+            "type": "field"
+          },
+          {
+            "text": "2. Review",
+            "type": "h"
+          },
+          {
+            "text": "Discuss the relevant measurements in plain language, following device guidance. Bring in training performance, attendance and how the member feels. Explain uncertainty and keep interpretation within the coach's competence.",
+            "type": "p"
+          },
+          {
+            "text": "Relevant observations / questions",
+            "type": "field"
+          },
+          {
+            "text": "3. Agree",
+            "type": "h"
+          },
+          {
+            "text": "Choose one or two achievable actions. Explain any relevant programme or coaching option without making the measurement an automatic sales recommendation.",
+            "type": "p"
+          },
+          {
+            "text": "Agreed action / support needed",
+            "type": "field"
+          },
+          {
+            "text": "4. Book",
+            "type": "h"
+          },
+          {
+            "text": "Next review date / owner",
+            "type": "field"
+          },
+          {
+            "text": "Your weight is one part of the picture. Let us look at what changed across the block, alongside your training, and agree what to focus on next.",
+            "type": "copy"
+          }
+        ],
+        "intro": "Use this structure privately with the member. Record only what is relevant through your club's approved member-record process.",
+        "title": "Coach consultation sheet"
+      },
+      {
+        "blocks": [
+          {
+            "headers": [
+              "Measure",
+              "Definition"
+            ],
+            "rows": [
+              [
+                "First assessment completion",
+                "Week 0 assessments completed / registrations"
+              ],
+              [
+                "Week 4 return rate",
+                "Week 4 assessments completed / week 0 completers"
+              ],
+              [
+                "Week 8 return rate",
+                "Week 8 assessments completed / week 0 completers"
+              ],
+              [
+                "Coach review completion",
+                "Completed coach reviews / assessments completed at that checkpoint"
+              ],
+              [
+                "Next-programme conversion",
+                "Members joining an agreed next programme / members completing the final coach review"
+              ],
+              [
+                "Feedback response",
+                "Feedback responses / members invited to give feedback"
+              ]
+            ],
+            "type": "table",
+            "widths": [
+              0.38,
+              0.62
+            ]
+          },
+          {
+            "text": "Worksheet columns",
+            "type": "h"
+          },
+          {
+            "text": "Club, cohort, checkpoint, reporting date, registrations, week 0 completers, assessments completed, coach reviews completed, next-programme sign-ups, feedback responses, feedback invited, owner and action notes.",
+            "type": "p"
+          },
+          {
+            "text": "Keep comparisons consistent",
+            "type": "h"
+          },
+          {
+            "text": "Define whether counts are unique members or appointments and use the same definition throughout. Keep cohort dates and denominators fixed. A return-rate percentage with only a handful of participants should be interpreted cautiously.",
+            "type": "p"
+          },
+          {
+            "text": "Reporting owner / weekly review day",
+            "type": "field"
+          },
+          {
+            "text": "Action for members missing a booked review",
+            "type": "field"
+          }
+        ],
+        "intro": "Use the accompanying CSV for aggregate cohort counts. Keep individual health information out of this campaign tracker.",
+        "title": "Track participation and follow-through"
+      },
+      {
+        "blocks": [
+          {
+            "text": "Follow-up message",
+            "type": "h"
+          },
+          {
+            "text": "Thanks for taking part in the Progress Challenge, [first name]. At your review we agreed [next action] and [support / programme]. Your next checkpoint is [date]. If anything gets in the way, contact [coach / contact route] so we can help you adjust the plan.",
+            "type": "copy"
+          },
+          {
+            "text": "Team debrief",
+            "type": "h"
+          },
+          {
+            "headers": [
+              "Question",
+              "Decision / action"
+            ],
+            "rows": [
+              [
+                "Did the cohort understand the invitation?",
+                ""
+              ],
+              [
+                "Could staff deliver all three checkpoints?",
+                ""
+              ],
+              [
+                "Where did bookings or reviews fall away?",
+                ""
+              ],
+              [
+                "Which conversations led to useful next actions?",
+                ""
+              ],
+              [
+                "What should change before the next cohort?",
+                ""
+              ]
+            ],
+            "type": "table",
+            "widths": [
+              0.6,
+              0.4
+            ]
+          },
+          {
+            "text": "Separate engagement and programme sales from claims about product impact. A challenge without a suitable comparison does not establish that measurement caused retention or revenue to improve.",
+            "type": "p"
+          },
+          {
+            "text": "Product information",
+            "type": "h"
+          },
+          {
+            "text": "TRU Alpha product specifications: https://secatru.com/en-gb/products/seca-tru-alpha\nMember app overview: https://secatru.com/en-en/products/seca-myanalytics\nConsult the supplied device instructions for operation and measurement conditions.",
+            "type": "p"
+          }
+        ],
+        "intro": "The final review should help the member understand the block and choose what to do next.",
+        "title": "Finish with a useful next step"
+      }
+    ],
+    "subtitle": "A practical activation for your members and coaching team.",
+    "title": "The 8-Week\nProgress Challenge"
+  },
+  "premium-member-experience-guide": {
+    "title": "Designing a Premium\nProgress Experience",
+    "subtitle": "A consistent service. A personal conversation.",
+    "label": "Member experience guide",
+    "pages": [
+      {
+        "title": "Choose the role of assessment",
+        "intro": "Make body composition part of a service your team can explain and deliver consistently.",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "Model",
+              "Member offer",
+              "Operational question"
+            ],
+            "rows": [
+              [
+                "Included benefit",
+                "Assessment and reviews included in premium membership",
+                "Can the team deliver the agreed frequency for eligible members?"
+              ],
+              [
+                "Coaching introduction",
+                "Assessment helps identify relevant training or coaching support",
+                "Who handles the consultation and appropriate follow-up?"
+              ],
+              [
+                "Specialist service",
+                "A paid assessment or defined coaching package",
+                "What exactly is included and who receives the revenue?"
+              ]
+            ],
+            "widths": [
+              0.23,
+              0.38,
+              0.39
+            ]
+          },
+          {
+            "type": "h",
+            "text": "Define your service"
+          },
+          {
+            "type": "field",
+            "text": "Chosen model / eligible membership or audience"
+          },
+          {
+            "type": "field",
+            "text": "What is included / assessment price if applicable"
+          },
+          {
+            "type": "field",
+            "text": "Appointment owner / booking route"
+          },
+          {
+            "type": "field",
+            "text": "Review timing / named review owner"
+          },
+          {
+            "type": "p",
+            "text": "Use the sample appointment on page 2, the delivery checklist on page 3 and the follow-up copy on page 4. The CSV worksheet lets you allocate owners and record service improvements."
+          }
+        ]
+      },
+      {
+        "title": "A sample welcome appointment",
+        "intro": "Illustrative 30-minute service plan. Test timings with your team and adapt to member needs and device instructions.",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "Time",
+              "Experience",
+              "Staff action"
+            ],
+            "rows": [
+              [
+                "0–5 min",
+                "Welcome and goals",
+                "Ask what the member wants to achieve and explain the appointment."
+              ],
+              [
+                "5–10 min",
+                "Prepare and measure",
+                "Follow device guidance, confirm suitability and complete the measurement."
+              ],
+              [
+                "10–20 min",
+                "Understand the result",
+                "Discuss relevant measures in plain language alongside training and feedback."
+              ],
+              [
+                "20–25 min",
+                "Choose a next step",
+                "Agree a practical action and appropriate support."
+              ],
+              [
+                "25–30 min",
+                "Book the review",
+                "Confirm the next appointment, owner and any preparation guidance."
+              ]
+            ],
+            "widths": [
+              0.16,
+              0.29,
+              0.55
+            ]
+          },
+          {
+            "type": "h",
+            "text": "Before arrival"
+          },
+          {
+            "type": "p",
+            "text": "Confirm the appointment, share the appropriate preparation guidance and make the booking easy to change. Have trained staff, the device and the member-record process ready."
+          },
+          {
+            "type": "h",
+            "text": "Keep the conversation personal"
+          },
+          {
+            "type": "copy",
+            "text": "What would you like to feel more confident doing? What would make this membership worthwhile for you? Let us use that as the starting point for your programme."
+          },
+          {
+            "type": "p",
+            "text": "TRU Alpha's listed 24-second measurement is not the full appointment length. Preparation, interpretation and discussion need separate time."
+          }
+        ]
+      },
+      {
+        "title": "Staff service checklist",
+        "intro": "Allocate ownership before launch. Record the status and next action in the accompanying CSV.",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "Service standard",
+              "Owner",
+              "Checked"
+            ],
+            "rows": [
+              [
+                "Invitation explains the purpose, inclusions and appointment length",
+                "Reception",
+                "[ ]"
+              ],
+              [
+                "Preparation guidance follows current device instructions",
+                "Measurement lead",
+                "[ ]"
+              ],
+              [
+                "Appropriate private space is available",
+                "Club manager",
+                "[ ]"
+              ],
+              [
+                "Staff are trained for their part of the process",
+                "Team lead",
+                "[ ]"
+              ],
+              [
+                "Results are discussed in clear, member-friendly language",
+                "Coach",
+                "[ ]"
+              ],
+              [
+                "Questions outside staff competence have an escalation route",
+                "Team lead",
+                "[ ]"
+              ],
+              [
+                "A relevant action is agreed with the member",
+                "Coach",
+                "[ ]"
+              ],
+              [
+                "The next review is booked before departure",
+                "Reception / coach",
+                "[ ]"
+              ],
+              [
+                "Member records are handled through the club's approved process",
+                "Club manager",
+                "[ ]"
+              ],
+              [
+                "Feedback and service issues are reviewed regularly",
+                "Service owner",
+                "[ ]"
+              ]
+            ],
+            "widths": [
+              0.6,
+              0.26,
+              0.14
+            ]
+          },
+          {
+            "type": "h",
+            "text": "Define the handover"
+          },
+          {
+            "type": "field",
+            "text": "Who explains results / who books the next review"
+          },
+          {
+            "type": "field",
+            "text": "Escalation contact / support route"
+          },
+          {
+            "type": "p",
+            "text": "The aim is a reliable service with room for individual needs. An assessment should not automatically lead to a paid coaching recommendation."
+          }
+        ]
+      },
+      {
+        "title": "Invitation and follow-up wording",
+        "intro": "Replace the bracketed details and use your club's normal permitted communication process.",
+        "blocks": [
+          {
+            "type": "h",
+            "text": "Welcome invitation"
+          },
+          {
+            "type": "copy",
+            "text": "Welcome to [club], [first name]. Your membership includes [assessment and review details]. At your first appointment, we will discuss your goals, establish a body composition baseline and agree a useful next step for your training.\nAllow around [appointment length]. Book at [link]. We will send the preparation guidance before you arrive."
+          },
+          {
+            "type": "h",
+            "text": "After the appointment"
+          },
+          {
+            "type": "copy",
+            "text": "It was good to meet you, [first name]. We agreed to focus on [goal / next action], with support from [coach / programme]. Your next review is booked for [date] with [name]. If your plans change or you have a question, contact us at [route]."
+          },
+          {
+            "type": "h",
+            "text": "Review invitation"
+          },
+          {
+            "type": "copy",
+            "text": "Your progress review is due. Let us look at how things have been going, discuss any changes and plan your next step. Book at [link] or speak to [team / coach]. Please follow the preparation guidance shared by our team."
+          },
+          {
+            "type": "p",
+            "text": "Keep sensitive results in the appropriate private member system. Use service messages to explain the next action without placing measurement data in group communications."
+          }
+        ]
+      },
+      {
+        "title": "Review the experience",
+        "intro": "Combine member feedback with evidence that the service is being delivered. Use the worksheet to record improvements.",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "Measure",
+              "How to use it"
+            ],
+            "rows": [
+              [
+                "Assessment uptake",
+                "Unique members assessed / eligible members offered the service"
+              ],
+              [
+                "Appointment completion",
+                "Completed appointments / appointments booked in the period"
+              ],
+              [
+                "Review return rate",
+                "Members completing their due review / members due a review"
+              ],
+              [
+                "Coaching referrals",
+                "Relevant referrals recorded, with follow-through tracked separately"
+              ],
+              [
+                "Member feedback",
+                "Ask what was useful, unclear or missing; record the response rate"
+              ],
+              [
+                "Staff capacity",
+                "Full appointment time, staffing cover and recurring service issues"
+              ]
+            ],
+            "widths": [
+              0.36,
+              0.64
+            ]
+          },
+          {
+            "type": "h",
+            "text": "A short feedback question"
+          },
+          {
+            "type": "copy",
+            "text": "How useful was this appointment in helping you understand your next training step? What could we make clearer or more useful?"
+          },
+          {
+            "type": "field",
+            "text": "Service review owner / review frequency"
+          },
+          {
+            "type": "field",
+            "text": "First improvement to test / due date"
+          },
+          {
+            "type": "p",
+            "text": "Treat retention as a longer-term outcome to evaluate with an appropriate comparison, not as an immediate result of assessment uptake.\nProduct information: https://secatru.com/en-gb/products/seca-tru-alpha"
+          }
+        ]
+      }
+    ],
+    "csv": {
+      "headers": [
+        "Service standard",
+        "Owner",
+        "Status (not started/in progress/complete)",
+        "Due date",
+        "Evidence / observation",
+        "Next action",
+        "Review date"
+      ],
+      "rows": [
+        [
+          "Invitation and inclusions",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Preparation guidance",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Staff training and escalation",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Private appointment space",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Consultation structure",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Next review booked",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Member feedback",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Service review and improvement",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      ]
+    }
+  },
+  "90-day-pilot-framework": {
+    "title": "The 90-Day\nTRU Alpha Pilot",
+    "subtitle": "Test the journey. Understand the delivery. Make a clearer decision.",
+    "label": "Multi-site pilot framework",
+    "pages": [
+      {
+        "title": "Define the pilot",
+        "intro": "Start with one primary use case and representative clubs. Agree the evidence required before the first measurement.",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "Decision",
+              "Record before launch"
+            ],
+            "rows": [
+              [
+                "Primary use case",
+                "Retention, PT, performance or premium member experience"
+              ],
+              [
+                "Sites",
+                "2–5 clubs reflecting relevant member, staffing and operational differences"
+              ],
+              [
+                "Cohort",
+                "Who is eligible, how they are invited and the intended sample"
+              ],
+              [
+                "Comparison",
+                "Baseline and, where feasible, a suitable comparison cohort or club"
+              ],
+              [
+                "Primary outcome",
+                "A defined operational or early commercial measure"
+              ],
+              [
+                "Decision owner",
+                "Named sponsor, local owners and evaluation lead"
+              ]
+            ],
+            "widths": [
+              0.28,
+              0.72
+            ]
+          },
+          {
+            "type": "field",
+            "text": "Primary use case / business question"
+          },
+          {
+            "type": "field",
+            "text": "Sites / cohort / expected participants"
+          },
+          {
+            "type": "field",
+            "text": "Sponsor / evaluation owner / start date"
+          },
+          {
+            "type": "p",
+            "text": "A 90-day pilot can test adoption, operational fit and early coaching conversion. It cannot by itself establish an improvement in annual churn. Plan longer follow-up and an appropriate comparison for retention."
+          }
+        ]
+      },
+      {
+        "title": "Days 1–30: prepare and launch",
+        "intro": "Make the operating model consistent enough to understand differences between sites.",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "When",
+              "Action",
+              "Suggested owner"
+            ],
+            "rows": [
+              [
+                "Days 1–5",
+                "Agree the use case, scope, site selection and primary question",
+                "Sponsor + operations"
+              ],
+              [
+                "Days 6–10",
+                "Capture baseline, comparison approach and agreed metric definitions",
+                "Evaluation lead"
+              ],
+              [
+                "Days 11–15",
+                "Set decision criteria, expected sample and responsibilities",
+                "Sponsor + sales / finance"
+              ],
+              [
+                "Days 16–20",
+                "Train staff, confirm device guidance and support ownership",
+                "Local leads + supplier"
+              ],
+              [
+                "Days 21–25",
+                "Prepare appointments, member messaging and reporting",
+                "Club managers"
+              ],
+              [
+                "Days 26–30",
+                "Launch and check the first member journeys",
+                "Local leads"
+              ]
+            ],
+            "widths": [
+              0.18,
+              0.57,
+              0.25
+            ]
+          },
+          {
+            "type": "h",
+            "text": "Baseline checklist"
+          },
+          {
+            "type": "p",
+            "text": "Record eligible members, existing assessment and review activity, PT consultations and conversion where relevant, member feedback, staffing capacity and any concurrent promotions."
+          },
+          {
+            "type": "field",
+            "text": "Data sources / consistent reporting period"
+          },
+          {
+            "type": "field",
+            "text": "Key seasonal or commercial changes to account for"
+          },
+          {
+            "type": "field",
+            "text": "Launch approval / outstanding dependencies"
+          }
+        ]
+      },
+      {
+        "title": "Days 31–90: run, learn and evaluate",
+        "intro": "Use short operational reviews to resolve delivery issues without changing the evaluation question halfway through.",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "Period",
+              "Focus",
+              "Output"
+            ],
+            "rows": [
+              [
+                "Days 31–45",
+                "Observe invitation, booking and first assessments",
+                "Initial adoption and delivery issues"
+              ],
+              [
+                "Days 46–60",
+                "Follow reviews, coaching conversations and staff workload",
+                "Updated uptake, return rates and capacity"
+              ],
+              [
+                "Days 61–75",
+                "Complete the agreed cohort reviews",
+                "Consistent site-level results and cost observations"
+              ],
+              [
+                "Days 76–90",
+                "Compare with baseline / suitable comparison and review economics",
+                "Roll out, refine or stop recommendation"
+              ]
+            ],
+            "widths": [
+              0.2,
+              0.45,
+              0.35
+            ]
+          },
+          {
+            "type": "h",
+            "text": "Weekly operational check"
+          },
+          {
+            "type": "p",
+            "text": "Review bookings, completions, missed appointments, staff cover, support issues and member feedback. Record any changes to the process and when they occurred."
+          },
+          {
+            "type": "h",
+            "text": "Protect the comparison"
+          },
+          {
+            "type": "p",
+            "text": "Account for differences in member mix, staffing, promotions and seasonality. Self-selecting participants may differ from other members. Describe these limits when interpreting changes."
+          },
+          {
+            "type": "field",
+            "text": "Weekly meeting owner / reporting day"
+          },
+          {
+            "type": "field",
+            "text": "Changes made during pilot / date / reason"
+          },
+          {
+            "type": "p",
+            "text": "Keep operational learning separate from claims of causal impact. A comparison is only useful if its limitations are understood."
+          }
+        ]
+      },
+      {
+        "title": "Evaluation scorecard",
+        "intro": "Set targets before launch using the baseline and operational requirements. No universal success threshold is assumed.",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "Measure",
+              "Definition",
+              "Baseline",
+              "Target",
+              "Actual"
+            ],
+            "rows": [
+              [
+                "Uptake",
+                "Unique members assessed / eligible members offered",
+                "____",
+                "____",
+                "____"
+              ],
+              [
+                "Review return",
+                "Members completing due review / members due",
+                "____",
+                "____",
+                "____"
+              ],
+              [
+                "PT conversion",
+                "New initial PT customers / completed consultations",
+                "____",
+                "____",
+                "____"
+              ],
+              [
+                "Delivery",
+                "Full appointment minutes and staff time",
+                "____",
+                "____",
+                "____"
+              ],
+              [
+                "Experience",
+                "Feedback result plus response rate",
+                "____",
+                "____",
+                "____"
+              ],
+              [
+                "Reliability",
+                "Support issues and downtime in period",
+                "____",
+                "____",
+                "____"
+              ]
+            ],
+            "widths": [
+              0.19,
+              0.42,
+              0.13,
+              0.13,
+              0.13
+            ]
+          },
+          {
+            "type": "h",
+            "text": "Record the decision context"
+          },
+          {
+            "type": "p",
+            "text": "Use the CSV to record site, measure, definition, baseline, target, actual, denominator, period, owner, status and next action. Record cohort counts alongside rates."
+          },
+          {
+            "type": "field",
+            "text": "Primary decision measure / minimum evidence required"
+          },
+          {
+            "type": "field",
+            "text": "Site differences that affect interpretation"
+          },
+          {
+            "type": "p",
+            "text": "Plan retention follow-up over a suitable longer period, for example 6–12 months where appropriate to the business question. Agree comparable cohorts and an evaluation method before drawing conclusions."
+          }
+        ]
+      },
+      {
+        "title": "Build the cost picture",
+        "intro": "Use actual quotes and observed delivery time. Separate one-off investment, recurring cost and any revenue the operator actually receives.",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "Cost or value",
+              "Record",
+              "Owner"
+            ],
+            "rows": [
+              [
+                "Equipment / financing",
+                "Quote, payment basis and relevant period",
+                "Finance / supplier"
+              ],
+              [
+                "Software / service",
+                "Recurring fee, inclusions and contract terms",
+                "Procurement"
+              ],
+              [
+                "Installation / setup",
+                "One-off labour and site requirements",
+                "Operations"
+              ],
+              [
+                "Staff training",
+                "Initial training and refresher time",
+                "Team leads"
+              ],
+              [
+                "Appointment delivery",
+                "Observed time × fully loaded staffing cost",
+                "Club managers"
+              ],
+              [
+                "Support / maintenance",
+                "Ongoing responsibilities and costs",
+                "Operations"
+              ],
+              [
+                "Operator revenue",
+                "Actual retained share of relevant sales",
+                "Finance"
+              ],
+              [
+                "Avoided acquisition spend",
+                "Evidence that spending was reduced",
+                "Marketing / finance"
+              ]
+            ],
+            "widths": [
+              0.3,
+              0.49,
+              0.21
+            ]
+          },
+          {
+            "type": "h",
+            "text": "Avoid double counting"
+          },
+          {
+            "type": "p",
+            "text": "Do not automatically add retained-member fees to acquisition savings. If departed members would have been replaced, account for replacement revenue and timing. Freelance PT package sales are not automatically club revenue."
+          },
+          {
+            "type": "field",
+            "text": "Evaluation period / cost owner"
+          },
+          {
+            "type": "field",
+            "text": "Unconfirmed costs or assumptions"
+          }
+        ]
+      },
+      {
+        "title": "Decide and document",
+        "intro": "A useful pilot shows where the journey works, for whom and under what operating conditions.",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": [
+              "Decision",
+              "When it may be appropriate"
+            ],
+            "rows": [
+              [
+                "Roll out",
+                "Agreed evidence supports operational fit and credible economics, with a plan for remaining uncertainty."
+              ],
+              [
+                "Refine and retest",
+                "The use case remains plausible but delivery, participation or the evidence base needs improvement."
+              ],
+              [
+                "Stop",
+                "Adoption, operating fit or economics do not justify further investment under the tested conditions."
+              ]
+            ],
+            "widths": [
+              0.25,
+              0.75
+            ]
+          },
+          {
+            "type": "field",
+            "text": "Recommendation / decision date / sponsor"
+          },
+          {
+            "type": "field",
+            "text": "Evidence supporting the recommendation"
+          },
+          {
+            "type": "field",
+            "text": "Remaining uncertainty / longer-term follow-up"
+          },
+          {
+            "type": "field",
+            "text": "Next phase / accountable owner / due date"
+          },
+          {
+            "type": "h",
+            "text": "Questions for the supplier"
+          },
+          {
+            "type": "p",
+            "text": "Confirm installation requirements, staff training, software and integration scope, support responsibilities, current pricing and the practical terms of any proposed pilot."
+          },
+          {
+            "type": "p",
+            "text": "This framework does not represent an offer of a free or guaranteed pilot. Discuss scope and availability with seca.\nProduct information: https://secatru.com/en-gb/products/seca-tru-alpha"
+          }
+        ]
+      }
+    ],
+    "csv": {
+      "headers": [
+        "Site",
+        "Use case",
+        "Metric",
+        "Definition / denominator",
+        "Baseline",
+        "Target agreed before launch",
+        "Actual",
+        "Cohort count",
+        "Reporting period",
+        "Owner",
+        "Status (met/not met/insufficient evidence)",
+        "Next action"
+      ],
+      "rows": [
+        [
+          "",
+          "",
+          "Uptake",
+          "Assessed / eligible members offered",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Review return",
+          "Completed due review / members due",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "PT conversion",
+          "Initial PT customers / completed consultations",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Delivery time",
+          "Full appointment minutes",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Member feedback",
+          "Result and response rate",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Operator value",
+          "Actual retained revenue and attributable costs",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      ]
+    }
+  }
+}

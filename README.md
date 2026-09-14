@@ -1,80 +1,45 @@
-# Progress You Can Prove campaign microsite
+# Progress You Can Prove
 
-Static interview concept for **seca TRU Alpha**. The site is intentionally built with HTML, CSS and vanilla JavaScript so it can be deployed directly through GitHub Pages with no build step.
+Independent interview campaign concept by George Robertshaw for seca TRU Alpha. The published website uses HTML, CSS and vanilla JavaScript with no backend.
 
-## 1. File structure
+## Campaign routes
 
-```text
-/
-  index.html
-  README.md
-  /progress-you-can-prove/
-    index.html
-    /retention/index.html
-    /personal-training/index.html
-    /performance/index.html
-    /premium-experience/index.html
-    /multi-site/index.html
-  /assets/
-    /css/styles.css
-    /js/main.js
-    /images/tru-alpha-placeholder.svg
-    /images/favicon.svg
+- Overview: customer priorities and an illustrative member progress review.
+- Retention: validated scenario with an improvement capped at existing churn. Associated membership value and optional acquisition savings are shown separately.
+- Personal training: validated initial-package sales scenario, capped at 100% conversion. Gross package sales may belong to an independent trainer.
+- Performance: six-page challenge toolkit and CSV tracker.
+- Premium experience: five-page service guide and CSV checklist.
+- Multi-site: six-page pilot framework and CSV scorecard, positioned as a later account-development step.
+
+## Hosting
+
+GitHub Pages serves the main branch at /seca-campaigns/. Internal navigation and assets use relative paths. Product photography, PDFs and CSV files are committed in assets, so the published site does not rely on an external image host.
+
+## Forms and measurement
+
+Forms are explicitly labelled interview demonstrations. They transmit and persist no input. JavaScript enables the forms only after their local submit handlers are attached. With JavaScript disabled, download pages provide a direct resource link.
+
+Scenario exports contain business inputs and results, with no personal contact details. There are no analytics calls, cookies or CRM connections. The Campaign strategy dialog explains the proposed live acquisition, qualification, nurture and sales handover, including an example enquiry context.
+
+The progress example is illustrative, with a visible label. Product specifications link to seca's current UK product page.
+
+## Source and maintenance
+
+- assets/js/calculator-models.js: pure scenario models with input validation.
+- assets/js/main.js: calculator UI, native dialogs, navigation, local forms and scenario export.
+- scripts/resources.json: editable content for the PDFs and CSV worksheets.
+- scripts/build_resources.py: generates committed resources and downloads the official photograph once.
+- scripts/verify_site.py: checks pages under the GitHub project path in Chromium, checks downloads, exercises calculators and form journeys, and captures review screenshots.
+
+The preparation workflow runs only on the named campaign development branch. It prepares resources, runs checks and commits generated assets and QA evidence to that branch. Publishing to main remains a separate fast-forward step after review.
+
+## Rebuild resources
+
+Install scripts/requirements.txt in a Python environment and run:
+```sh
+python scripts/build_resources.py
+python -m playwright install chromium
+python scripts/verify_site.py
 ```
 
-All internal URLs are **relative**, so the site works on a GitHub Pages project path such as `username.github.io/repository-name/` rather than only at the domain root.
-
-## 2. Preview locally
-
-You can open `index.html` directly, but a local web server is better for matching GitHub Pages behaviour. From the project folder run, for example:
-
-```bash
-python -m http.server 8000
-```
-
-Then open `http://localhost:8000/`.
-
-## 3. Deploy through GitHub Pages
-
-1. Create or open a GitHub repository.
-2. Upload the contents of this folder to the repository root.
-3. In GitHub open **Settings → Pages**.
-4. Under **Build and deployment**, select **Deploy from a branch**.
-5. Choose the branch (normally `main`) and `/ (root)`.
-6. Save and wait for GitHub Pages to publish the site.
-
-## 4. Replacing images
-
-`assets/images/tru-alpha-placeholder.svg` is a clearly labelled product-photography placeholder. Replace it with approved/licensed seca TRU Alpha imagery and update image references if the filename changes. The placeholder exists because this concept should not redistribute copyrighted product imagery without permission.
-
-`assets/images/favicon.svg` is also a placeholder rather than an official seca brand asset.
-
-## 5. Calculator assumptions
-
-Calculator logic is in `assets/js/main.js`. Default assumptions are set in the corresponding HTML inputs.
-
-Key principle: operator-supplied inputs are separated from **hypothesis/scenario assumptions**. No calculator claims that TRU Alpha causes the modelled uplift.
-
-- Retention: `ret-*` fields and the `retention()` function.
-- Personal Training: `pt-*` fields and the `pt()` function.
-- Premium Experience: `prem-*` fields and the `premium()` function.
-- Multi-Site: `multi-*` fields and the `multisite()` function.
-
-Before a real commercial deployment, replace illustrative assumptions with validated customer/pilot data and confirm investment pricing.
-
-## 6. Future HubSpot integration
-
-The forms are intentionally non-transmitting simulations. A live implementation could:
-
-- replace each mock form with a HubSpot embedded form or Forms API integration;
-- create custom Contact and Company properties for site count, member base, churn, CAC, campaign interest and calculator outputs;
-- pass calculator values into hidden form properties on submit;
-- use workflows to branch nurture by Retention, PT, Performance, Premium or Multi-Site interest;
-- use HubSpot Company records to aggregate multiple stakeholder interactions into account-level intent;
-- validate lead/account scoring weights against actual opportunity creation and closed revenue.
-
-For a production site, add consent/cookie handling and privacy documentation appropriate to the tracking and form configuration used.
-
-## Content / evidence note
-
-The concept draws on current seca materials describing TRU Alpha as a fitness body-composition solution with medical validation, cloud-based interpretation software, integration interfaces and self-measurement workflows. Commercial outcomes such as retention, PT conversion and premium revenue are deliberately presented as scenarios to test rather than product claims.
+The website itself has no Python or build-time dependency once assets are committed. Image provenance is recorded in assets/images/CREDITS.md.
