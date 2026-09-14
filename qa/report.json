@@ -14,10 +14,12 @@
     "PT: default sales, invalid conversion, 100% cap and zero volume",
     "progress-challenge-toolkit: local form preview and both downloads",
     "premium-member-experience-guide: local form preview and both downloads",
-    "90-day-pilot-framework: local form preview and both downloads"
+    "90-day-pilot-framework: local form preview and both downloads",
+    "Native dialogs: opening, keyboard focus, Escape and scenario context",
+    "Mobile navigation and explicit index.html route"
   ],
   "failures": [
     ""
   ],
-  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/seca-campaigns/seca-campaigns/scripts/verify_site.py\", line 176, in <module>\n    assert \"membershipValue\" in page.locator(\"#context-preview\").inner_text()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/seca-campaigns/seca-campaigns/scripts/verify_site.py\", line 196, in <module>\n    assert plain.locator(\"#download fieldset\").is_disabled()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
 }
