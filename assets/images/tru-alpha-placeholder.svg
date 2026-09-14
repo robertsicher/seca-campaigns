@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">TRU Alpha image placeholder</title>
+  <desc id="desc">Replace with approved seca TRU Alpha product photography.</desc>
+  <rect width="1200" height="800" fill="#121212"/>
+  <rect x="70" y="70" width="1060" height="660" rx="8" fill="#1f1f1f" stroke="#4a4a4a"/>
+  <circle cx="930" cy="270" r="170" fill="#d71920" opacity=".92"/>
+  <path d="M790 590h270l-26-325H816z" fill="#2e2e2e" stroke="#eeeeee" stroke-width="4"/>
+  <rect x="832" y="205" width="185" height="100" rx="8" fill="#0d0d0d" stroke="#eeeeee" stroke-width="3"/>
+  <line x1="868" y1="305" x2="845" y2="590" stroke="#eeeeee" stroke-width="3"/>
+  <line x1="982" y1="305" x2="1005" y2="590" stroke="#eeeeee" stroke-width="3"/>
+  <text x="115" y="210" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700">seca TRU Alpha</text>
+  <text x="115" y="290" fill="#cfcfcf" font-family="Arial, Helvetica, sans-serif" font-size="34">Approved product photography placeholder</text>
+  <text x="115" y="640" fill="#a0a0a0" font-family="Arial, Helvetica, sans-serif" font-size="26">Replace this SVG with licensed campaign imagery.</text>
+</svg>
