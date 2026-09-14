@@ -6,6 +6,77 @@
   const set=(id,text)=>{const el=document.getElementById(id); if(el) el.textContent=text};
   const width=(id,v,max)=>{const el=document.getElementById(id); if(el)el.style.width=`${Math.max(0,Math.min(100,max?100*v/max:0))}%`};
 
+  function restructureCampaign(){
+    const path=window.location.pathname.replace(/\/+$/,'/');
+    const isHome=/\/progress-you-can-prove\/$/.test(path);
+    const isMulti=path.includes('/progress-you-can-prove/multi-site/');
+
+    /* Multi-site is an enterprise rollout layer, not a fifth use case. */
+    $$('.nav-links a').forEach(a=>{if((a.getAttribute('href')||'').includes('/multi-site/'))a.remove();});
+
+    const footerLinks=$('.footer-links');
+    if(footerLinks&&!$('.multi-site-footer',footerLinks)){
+      const a=document.createElement('a');
+      a.className='multi-site-footer';
+      a.href=isHome?'multi-site/':'../multi-site/';
+      a.textContent='For multi-site operators';
+      const strategy=$('.strategy-open',footerLinks);
+      strategy?footerLinks.insertBefore(a,strategy):footerLinks.appendChild(a);
+    }
+
+    if(isHome){
+      const priority=$('#business-priorities');
+      if(priority){
+        const heading=$('.section-head h2',priority);
+        if(heading)heading.textContent='One measurement platform. Four commercial conversations.';
+        const intro=$('.section-head p:last-child',priority);
+        if(intro)intro.textContent='Each route starts with a different operator problem and uses the same core idea: make progress easier to see, understand and act on.';
+        $$('.pillar',priority).forEach(p=>{const tag=$('.tag',p);if(tag&&tag.textContent.trim().toUpperCase()==='SCALE')p.remove();});
+        if(!$('#enterprise-scale')){
+          const section=document.createElement('section');
+          section.className='section';
+          section.id='enterprise-scale';
+          section.innerHTML='<div class="container"><div class="intro-split"><div><p class="eyebrow">For multi-site operators</p><h2 class="display">Proven at one club. Designed to scale.</h2></div><div class="intro-copy"><p>Retention, personal training, performance and premium experience are the reasons to engage. For a multi-site operator, the next question is whether the chosen use case works consistently across the estate.</p><p>Start with representative locations, prove member adoption, operational fit and commercial relevance, then use real evidence to decide whether broader deployment makes sense.</p><a class="btn btn--red" href="multi-site/" style="margin-top:18px">Explore the 90-Day Pilot Framework</a></div></div></div>';
+          priority.insertAdjacentElement('afterend',section);
+        }
+      }
+      const objective=$('select[name="objective"]');
+      if(objective){
+        Array.from(objective.options).forEach(o=>{if(/national rollout/i.test(o.textContent))o.remove();});
+      }
+    }
+
+    if(isMulti){
+      const asideLabel=$('.page-hero .hero-aside .eyebrow');
+      if(asideLabel)asideLabel.textContent='Enterprise rollout layer';
+      const hero=$('.page-hero');
+      if(hero&&!$('.enterprise-context')){
+        const context=document.createElement('section');
+        context.className='section section--tight enterprise-context';
+        context.innerHTML='<div class="container"><div class="callout"><p><strong>Start with the use case first.</strong> Retention, PT, performance or premium experience creates the reason to engage. This framework is what happens next when a multi-site operator wants to prove the model before scaling it.</p></div></div>';
+        hero.insertAdjacentElement('afterend',context);
+      }
+    }
+
+    const cardBy=(title)=>$$('.strategy-card').find(card=>$('h3',card)?.textContent.trim()===title);
+    const objectiveCard=cardBy('Commercial objective');
+    if(objectiveCard){
+      const p=$('p',objectiveCard); if(p)p.textContent='Create demand around four operator problems: member retention, personal training, performance programmes and premium member experience. Multi-site is treated as the enterprise conversion layer, not a fifth proposition.';
+    }
+    const intentCard=cardBy('Content by intent');
+    if(intentCard){
+      const p=$('p',intentCard); if(p)p.textContent='Retention and PT use calculators where the prospect\'s own economics improve the conversation. Performance and premium use practical guides. The 90-Day Pilot Framework sits later in the journey, once a multi-site account has identified the use case it wants to validate.';
+    }
+    const hubspotCard=cardBy('HubSpot architecture');
+    if(hubspotCard){
+      const p=$('p',hubspotCard); if(p)p.textContent='Page behaviour and asset engagement identify interest in the four core use cases. For larger accounts, site count, repeat engagement and multiple stakeholders can move the Company record into an enterprise pilot or ABM path rather than treating multi-site as a separate campaign theme.';
+    }
+    const note=$('.strategy-note');
+    if(note)note.innerHTML='<strong>Principle:</strong> four demand propositions create the reason to engage. Multi-site is the enterprise conversion layer: once the use case is clear, pilot evidence determines whether the operator should scale it.';
+  }
+
+  restructureCampaign();
+
   const navToggle=$('.nav-toggle'), navLinks=$('.nav-links');
   if(navToggle&&navLinks){navToggle.addEventListener('click',()=>{const o=navLinks.classList.toggle('is-open');navToggle.setAttribute('aria-expanded',o)});}
   const modal=$('#strategy-modal');
