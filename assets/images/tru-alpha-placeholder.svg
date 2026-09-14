@@ -1,14 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
-  <title id="title">TRU Alpha image placeholder</title>
-  <desc id="desc">Replace with approved seca TRU Alpha product photography.</desc>
-  <rect width="1200" height="800" fill="#121212"/>
-  <rect x="70" y="70" width="1060" height="660" rx="8" fill="#1f1f1f" stroke="#4a4a4a"/>
-  <circle cx="930" cy="270" r="170" fill="#d71920" opacity=".92"/>
-  <path d="M790 590h270l-26-325H816z" fill="#2e2e2e" stroke="#eeeeee" stroke-width="4"/>
-  <rect x="832" y="205" width="185" height="100" rx="8" fill="#0d0d0d" stroke="#eeeeee" stroke-width="3"/>
-  <line x1="868" y1="305" x2="845" y2="590" stroke="#eeeeee" stroke-width="3"/>
-  <line x1="982" y1="305" x2="1005" y2="590" stroke="#eeeeee" stroke-width="3"/>
-  <text x="115" y="210" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700">seca TRU Alpha</text>
-  <text x="115" y="290" fill="#cfcfcf" font-family="Arial, Helvetica, sans-serif" font-size="34">Approved product photography placeholder</text>
-  <text x="115" y="640" fill="#a0a0a0" font-family="Arial, Helvetica, sans-serif" font-size="26">Replace this SVG with licensed campaign imagery.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+<title id="title">Illustrative body composition campaign visual</title><desc id="desc">An original concept illustration representing body composition measurement, progress tracking and a fitness measurement device.</desc>
+<defs><linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#202226"/><stop offset="1" stop-color="#0b0c0e"/></linearGradient><linearGradient id="red" x1="0" x2="1"><stop stop-color="#e30613"/><stop offset="1" stop-color="#8e0008"/></linearGradient></defs>
+<rect width="1200" height="900" fill="url(#bg)"/>
+<circle cx="970" cy="168" r="260" fill="#e30613" opacity=".12"/>
+<circle cx="870" cy="720" r="310" fill="#ffffff" opacity=".025"/>
+<g transform="translate(630 115)"><rect x="120" y="40" width="292" height="148" rx="8" fill="#151619" stroke="#767a80" stroke-width="2"/><rect x="145" y="65" width="242" height="98" fill="#08090a"/><rect x="210" y="95" width="112" height="10" fill="#e30613"/><rect x="210" y="116" width="72" height="7" fill="#6e7278"/><path d="M165 188 L124 690 L408 690 L365 188" fill="#1f2124" stroke="#73777c" stroke-width="3"/><path d="M118 690 H414 L470 768 H62 Z" fill="#2b2d31" stroke="#777b80" stroke-width="3"/><rect x="115" y="728" width="304" height="24" rx="12" fill="#111214"/><circle cx="178" cy="717" r="10" fill="#e30613"/><circle cx="354" cy="717" r="10" fill="#e30613"/></g>
+<g transform="translate(70 90)"><text x="0" y="0" fill="#e30613" font-family="Arial" font-size="20" font-weight="700" letter-spacing="4">MAKE PROGRESS VISIBLE</text><text x="0" y="75" fill="#ffffff" font-family="Arial" font-size="64" font-weight="700">Measure.</text><text x="0" y="142" fill="#ffffff" font-family="Arial" font-size="64" font-weight="700">Understand.</text><text x="0" y="209" fill="#ffffff" font-family="Arial" font-size="64" font-weight="700">Progress.</text></g>
+<g transform="translate(75 390)"><rect width="465" height="325" fill="#151619" stroke="#3e4146"/><text x="28" y="42" fill="#aeb2b6" font-family="Arial" font-size="16" letter-spacing="2">PROGRESS SNAPSHOT</text><text x="28" y="91" fill="#ffffff" font-family="Arial" font-size="26" font-weight="700">Body composition trend</text><line x1="28" y1="258" x2="430" y2="258" stroke="#44474c"/><line x1="28" y1="126" x2="28" y2="258" stroke="#44474c"/><polyline points="28,232 100,220 170,206 235,180 305,168 365,136 430,118" fill="none" stroke="#e30613" stroke-width="6"/><g fill="#e30613"><circle cx="28" cy="232" r="6"/><circle cx="100" cy="220" r="6"/><circle cx="170" cy="206" r="6"/><circle cx="235" cy="180" r="6"/><circle cx="305" cy="168" r="6"/><circle cx="365" cy="136" r="6"/><circle cx="430" cy="118" r="6"/></g><text x="28" y="294" fill="#aeb2b6" font-family="Arial" font-size="14">Baseline</text><text x="366" y="294" fill="#aeb2b6" font-family="Arial" font-size="14">Review</text></g>
+<text x="76" y="822" fill="#8f9398" font-family="Arial" font-size="16">Illustrative campaign visual. Replace with approved product photography for production use.</text>
 </svg>
