@@ -16,10 +16,8 @@
     "premium-member-experience-guide: local form preview and both downloads",
     "90-day-pilot-framework: local form preview and both downloads",
     "Native dialogs: opening, keyboard focus, Escape and scenario context",
-    "Mobile navigation and explicit index.html route"
+    "Mobile navigation and explicit index.html route",
+    "No-JavaScript: safe disabled form and direct guide access"
   ],
-  "failures": [
-    ""
-  ],
-  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/seca-campaigns/seca-campaigns/scripts/verify_site.py\", line 196, in <module>\n    assert plain.locator(\"#download fieldset\").is_disabled()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  "failures": []
 }
