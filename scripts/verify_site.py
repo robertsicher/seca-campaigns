@@ -193,7 +193,9 @@ try:
             nojs=browser.new_context(java_script_enabled=False)
             plain=nojs.new_page()
             plain.goto(base+"performance/")
-            assert plain.locator("#download fieldset").is_disabled()
+            assert plain.locator("#download fieldset").get_attribute("disabled") is not None
+            assert plain.locator("#download input[name=first]").is_disabled()
+            assert plain.locator("#download button[type=submit]").is_disabled()
             assert plain.locator("#download noscript a").is_visible()
             assert plain.locator("#download noscript a").get_attribute("href").endswith(".pdf")
             nojs.close()
